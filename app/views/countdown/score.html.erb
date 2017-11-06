@@ -1,2 +1,21 @@
-<h1>Countdown#score</h1>
-<p>Find me in app/views/countdown/score.html.erb</p>
+<% if @result[:score] == 0 %>
+  <h2>You suck!</h2>
+  <h2>Like a lot.</h2>
+  <h2>Like the most.</h2>
+<% else %>
+  <h2>Congratulations</h2>
+<% end %>
+
+
+<h3>Score: <%= @result[:score] %></h3>
+<h3>Time: <%= @result[:time] %></h3>
+<h3>Message: <%= @result[:message] %></h3>
+
+<% if @result[:score] == @high_score %>
+  <h1 style="color: #d32292">You beat the high score!</h1>
+<% end %>
+<h3>High Score: <%= @high_score %></h3>
+
+<button>
+  <%= link_to 'Play Again', play_path %>
+</button>
